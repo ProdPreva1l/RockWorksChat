@@ -59,7 +59,7 @@ public record Channel(
                 return true;
             }
 
-            ChannelManager.getInstance().dispatchMessage(player, String.join(" ", args));
+            ChannelManager.getInstance().dispatchMessageOnChannel(player, id, String.join(" ", args));
             return false;
         }
     }

@@ -51,6 +51,15 @@ public final class ChannelManager implements Listener {
         return getChannel(channelName);
     }
 
+    public void dispatchMessageOnChannel(Player player, String channelId, String message) {
+        Channel channel = getChannel(channelId);
+        // First we send the message to the player, so it looks like there's no delay to the player
+        player.sendMessage(Text.modernMessage(channel.format(player, message)));
+
+        // Then we send the message to the rest of the servers, we don't send it to the local server first, so we don't have weird ordering.
+        RedisManager.getInstance().send(new Message(Tuple.of(player.getUniqueId(), player.getName()), channel.format(player, message), channel.id()));
+    }
+
     public void dispatchMessage(Player player, String message) {
         Channel channel = getChannel(player.getUniqueId());
         // First we send the message to the player, so it looks like there's no delay to the player
