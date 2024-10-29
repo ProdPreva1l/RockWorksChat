@@ -1,0 +1,8 @@
+name: RockWorksChat
+version: '${version}'
+main: info.preva1l.rockworkschat.RockWorksChat
+api-version: '1.19'
+
+libraries:
+  - de.exlll:configlib-yaml:4.5.0
+  - redis.clients:jedis:5.1.0
