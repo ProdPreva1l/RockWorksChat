@@ -51,7 +51,7 @@ public final class RedisManager {
         }
 
         subscriber.enable(jedisPool);
-        Thread thread = new Thread(subscriber::subscribe, "fadah:redis_subscriber");
+        Thread thread = new Thread(subscriber::subscribe, "rwc:redis_subscriber");
         thread.setDaemon(true);
         thread.start();
     }
