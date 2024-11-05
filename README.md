@@ -27,8 +27,8 @@ channels:
   - tradechat
   always-view: true
 broker: # Redis settings
-  host: 37.230.138.164
-  port: 6499
-  password: XfdxzAj9sRrYc5
+  host: localhost
+  port: 6397
+  password: password
   channel: chatsync:message
 ```
